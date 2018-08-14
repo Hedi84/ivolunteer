@@ -1,0 +1,11 @@
+<h1>Your report for <%= @report.month.strftime("%B - %Y") %></h1>
+
+
+<% if @report.notes.count > 0 %>
+  <% @report.notes.each do |note| %>
+    <h3>Notes for this month:</h3>
+    <p><%= note.created_at.strftime("%m/%d/%Y") %> - <%= note.title %> <%= link_to "edit this note", edit_report_note_path(@report, note.id) %></p>
+  <% end %>
+<% else %>
+  <h3>No notes for this month yet, <%= link_to "add a note", new_report_note_path(@report) %></h3>
+<% end %>

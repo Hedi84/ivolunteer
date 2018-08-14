@@ -1,0 +1,91 @@
+
+<% if user_signed_in? %>
+
+<div class="navbar-wagon">
+  <div class="navbar-wagon-left">
+    <%= link_to root_path do %>
+    <%= image_tag "logo.png", alt: "logo", class: "navbar-brand"%>
+    <%  end %>
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to 'Home', root_path %></li>
+          <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="navbar-wagon-right">
+
+   <div class="navbar-wagon-item navbar-wagon-link">
+    <%= link_to root_path do%>
+    <i class="fas fa-paw"></i>
+      View Your Reports
+    <%end%>
+  </div>
+
+  <div class="navbar-wagon-item navbar-wagon-link">
+    <%= link_to new_report_path do %>
+    <i class="fas fa-home"></i>
+      Create a New Report
+    <%end%>
+  </div>
+
+  </div>
+  <div class="navbar-wagon-item navbar-wagon-link">
+    <%= link_to destroy_user_session_path, method: :delete do%>
+    <i class="fas fa-sign-out-alt"></i>
+    Logout
+    <% end %>
+  </div>
+
+<!-- Dropdown appearing on mobile only -->
+
+</div>
+
+<% else %>
+
+<div class="navbar-wagon">
+  <div class="navbar-wagon-left">
+    <%= link_to root_path do %>
+    <%= image_tag "logo.png", alt: "logo", class: "navbar-brand"%>
+    <%  end %>
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to 'Home', root_path %></li>
+          <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-wagon-right">
+   <div class="navbar-wagon-item navbar-wagon-link">
+    <i class="fas fa-sign-in-alt"></i>
+    <%= link_to 'Login', new_user_session_path %>
+  </div>
+  <div class="navbar-wagon-item navbar-wagon-link">
+    <i class="fas fa-user-plus"></i>
+    <%= link_to 'Sign up', new_user_registration_path %>
+  </div>
+
+<!-- Dropdown appearing on mobile only -->
+<div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="dropdown">
+    <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <li> <%= link_to 'Login', new_user_session_path %></li>
+      <li><%= link_to 'Sign-Up', new_user_registration_path %></li>
+      <li><%= link_to 'Home', root_path %></li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<% end %>
