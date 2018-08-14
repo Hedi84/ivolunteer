@@ -1,5 +1,1 @@
-<%= simple_form_for [@report, @note] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'note_form', note: @note  %>

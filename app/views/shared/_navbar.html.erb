@@ -4,7 +4,7 @@
 <div class="navbar-wagon">
   <div class="navbar-wagon-left">
     <%= link_to root_path do %>
-    <%= image_tag "logo.png", alt: "logo", class: "navbar-brand"%>
+      <i class="fas fa-home"></i>
     <%  end %>
     <div class="navbar-wagon-item hidden-md hidden-lg">
       <div class="dropdown">
@@ -21,15 +21,15 @@
   <div class="navbar-wagon-right">
 
    <div class="navbar-wagon-item navbar-wagon-link">
-    <%= link_to root_path do%>
-    <i class="fas fa-paw"></i>
+    <%= link_to reports_path do%>
+    <i class="far fa-eye"></i>
       View Your Reports
     <%end%>
   </div>
 
   <div class="navbar-wagon-item navbar-wagon-link">
     <%= link_to new_report_path do %>
-    <i class="fas fa-home"></i>
+    <i class="fas fa-book"></i>
       Create a New Report
     <%end%>
   </div>

@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
-
-before_action :find_note, except: [:new, :create]
+  before_action :authenticate_user!
+  before_action :find_note, except: [:new, :create]
 
   def new
     @note = Note.new
@@ -29,7 +29,6 @@ before_action :find_note, except: [:new, :create]
   end
 
   def edit
-    @report = Report.find(params[:report_id])
     @note.update(note_params)
     if @note.save
       redirect_to note_path(@note)

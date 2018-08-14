@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :find_report, only: [:show, :delete]
+  before_action :authenticate_user!
 
 
   def new
@@ -18,10 +19,11 @@ class ReportsController < ApplicationController
   end
 
   def index
-      @reports = Report.all.order(created_at: :asc)
+    @reports = Report.all.order(created_at: :asc)
   end
 
   def show
+
   end
 
   def destroy
@@ -39,4 +41,11 @@ class ReportsController < ApplicationController
   def report_params
      params.require(:report).permit(:month)
   end
+
+  # def only_see_own_page
+  #   @user = User.find(params[:id])
+  #   if current_user != @user
+  #     redirect_to root_path, notice: "Sorry, but you are only allowed to view your own profile page."
+  #   end
+  # end
 end

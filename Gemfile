@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
 
+# cloudinary
+gem 'cloudinary'
+
 # front-end
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.7'

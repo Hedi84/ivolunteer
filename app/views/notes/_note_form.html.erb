@@ -1,0 +1,10 @@
+<%= simple_form_for [@report, @note] do |f| %>
+<div class="col-xs-4 offset-md-4">
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit %>
+</div>
+<% end %>
+
