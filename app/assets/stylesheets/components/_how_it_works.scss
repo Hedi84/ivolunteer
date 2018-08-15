@@ -1,0 +1,22 @@
+.how_it_works {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40vh;
+  align-items: center;
+
+
+}
+
+.work-item {
+  text-align: center;
+  p{
+  font-size: 30px;
+  color: $gray;
+  // margin-left: 15px;
+  }
+  i {
+    color: $green;
+    font-size: 40px;
+  }
+}
