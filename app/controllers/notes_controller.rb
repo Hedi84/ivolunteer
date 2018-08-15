@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_note, except: [:new, :create]
+  before_action :find_report, only: [:new, :create, :edit, :update]
 
   def new
     @note = Note.new
@@ -9,7 +10,6 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-    @report = Report.find(params[:report_id])
     @note.report = @report
     if @note.save
       redirect_to report_path(@report)
@@ -29,9 +29,12 @@ class NotesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
     @note.update(note_params)
     if @note.save
-      redirect_to note_path(@note)
+      redirect_to report_note_path(@report, @note)
     else
       render "edit"
     end
@@ -44,7 +47,11 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
   end
 
+  def find_report
+    @report = Report.find(params[:report_id])
+  end
+
   def note_params
-    params.require(:note).permit(:title, :description)
+    params.require(:note).permit(:title, :description, :photo)
   end
 end

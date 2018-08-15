@@ -1,0 +1,111 @@
+
+
+.my-container {
+
+}
+
+.my-row {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+.cards {
+  // margin-left: 20px;
+  // margin-right: 20px;
+  // padding-bottom: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  // flex-shrink: 0;
+  // flex-grow: 1;
+  flex-wrap: wrap;
+
+
+}
+
+.card-photo {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+
+
+.card {
+  height: 350px;
+  width: 400px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  // background-size: cover !important;
+  background-position: center;
+  color: black;
+  background-color: $light-gray !important;
+  position: relative;
+  // background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 90%);
+  // padding-bottom: 50px;
+  margin-top: 15px;
+  margin-left: 25px;
+  box-shadow: 6px 10px 5px 0px rgba(171,166,171,1);
+
+}
+
+.card:hover {
+  opacity: 0.9;
+  box-shadow: 11px 15px 10px 0px rgba(171,166,171,1);
+}
+
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  a {
+    color: red !important;
+    font-size: 24px;
+  }
+}
+.card-description {
+  position: absolute;
+  // bottom: 120px;
+  // left: 19px;
+  margin: 15px;
+  color: $gray;
+  // text-shadow: 1px 0 0 $light-gray, 0 -1px 0 $light-gray, 0 1px 0 $light-gray, -1px 0 0 $light-gray;
+}
+.card-description h2 {
+  font-size: 24px;
+  font-family: 'Indie Flower', cursive;
+}
+.card-description p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
+

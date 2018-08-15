@@ -6,7 +6,7 @@
   <p>These are all your notes for <%= @report.month.strftime("%B - %Y") %></p>
   <p><%= link_to "add a note", new_report_note_path(@report) %></p>
   <% @report.notes.each do |note| %>
-    <p><%= note.created_at.strftime("%m/%d/%Y")%>: <%= link_to note.title, report_note_path(@report, note.id)%> <%=link_to 'x', report_note_path(note), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %></p><%= note.description %> </p>
+    <p><%= note.created_at.strftime("%m/%d/%Y")%>: <%= link_to note.title, report_note_path(@report, note.id)%> <%=link_to 'x', report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %></p><%= note.description %> </p>
   <% end %>
 <% else %>
   <h3>No notes for this month yet, <%= link_to "add a note", new_report_note_path(@report) %></h3>

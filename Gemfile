@@ -3,8 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
 
-# cloudinary
+# photos
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+gem 'figaro'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # front-end
 gem 'autoprefixer-rails'

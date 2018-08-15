@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
     @user = current_user
-  end
+    @reports = @user.reports
+    @report = @reports.last
+   end
 end

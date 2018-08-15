@@ -1,11 +1,45 @@
-<h1>Welcome to ivolunteer!</h1>
-<h2>Track Your Volunteering Day by Day </h2>
+<div class="index-background">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('plants.jpg'); %>)">
+    <div class="banner-content">
+        <h1>Welcome to ivolunteer!</h1>
+        <h2><i>Track Your Volunteering Day by Day</i></h2>
+        <% if user_signed_in? %>
+          <%= link_to "Add New Report", new_report_path, type: "button", class: "button" %>
+        <% else %>
+          <%= link_to "Start Today!", new_user_registration_path, type: "button", class: "button" %>
+        <% end %>
+    </div>
+  </div>
 
 
-<% if user_signed_in? %>
-  <h2>What would you like to do today, <%= @user.email %>?</h2>
-  <h3>View Your <%= link_to "Reports", reports_path %></h3>
-  <h3>Create a <%= link_to "New Report", new_report_path %></
-<% else %>
-  <h3>Start today, <%= link_to "Sign Up",  new_user_registration_path %></h3>
-<% end %>
+  <div class="my-container">
+    <div class="my-row">
+      <% @report.notes.last(4).each do |note| %>
+        <%= link_to report_note_path(@report, note) do%>
+          <!-- <div class="col-xs-12 col-sm-4"> -->
+            <div class="card">
+
+              <% if note.photo? %>
+                <% photo_url = cl_image_path note.photo %>
+              <% else %>
+                <% photo_url = image_path('sprout.jpg') %>
+              <% end %>
+              <div class="card-photo" style="background-image: url(<%= photo_url %>)"></div>
+
+           <div class="card-description">
+              <h2><%= note.title%></h2>
+              <p><%=  h truncate(note.description, length: 100) %></p>
+           </div>
+          </div>
+        <!-- </div> -->
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
