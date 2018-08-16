@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_204421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
-    t.string "time"
+    t.float "time"
     t.index ["report_id"], name: "index_notes_on_report_id"
   end
 
