@@ -15,6 +15,8 @@
   <% if user_signed_in? %>
     <div class="my-container">
       <div class="my-row">
+
+        <% if @user.reports.count > 0 && @report.notes.count > 0 %>
         <% @report.notes.last(4).each do |note| %>
           <%= link_to report_note_path(@report, note) do%>
             <!-- <div class="col-xs-12 col-sm-4"> -->
@@ -34,6 +36,9 @@
             </div>
           <!-- </div> -->
           <% end %>
+        <% end %>
+        <% else %>
+          <p>You haven't added volunteer work yet.</p>
         <% end %>
       </div>
     </div>

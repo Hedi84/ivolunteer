@@ -1,6 +1,6 @@
 <h1><%= @note.title %></h1>
 <h2>Created at: <%= @note.created_at.strftime("%D %B %Y") %></h2>
-<p>Time spent on this activity: <%= note.time %> hours</p>
+<p>Time spent on this activity: <%= pluralize(@note.time, 'hour') %> </p>
 <p><%= link_to "edit this note", edit_report_note_path(@note.report, @note) %></p>
 <p><%= @note.description %></p>
 <%= cl_image_tag @note.photo, height: 300, width: 400, crop: :fill %>

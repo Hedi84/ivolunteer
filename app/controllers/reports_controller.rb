@@ -23,7 +23,13 @@ class ReportsController < ApplicationController
   end
 
   def show
+    @notes = @report.notes
 
+    time = []
+    @notes.each do |note|
+      time << note.time.to_f
+      @time = time.inject(0){|sum,x| sum + x }
+    end
   end
 
   def destroy
