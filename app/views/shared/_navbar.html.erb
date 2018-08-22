@@ -33,6 +33,12 @@
       <%end%>
     </div>
 
+     <div class="navbar-text">
+       <i class="fas fa-user"></i>
+       Logged in as: <%= @user.email %>
+    </div>
+
+
     <div class="navbar-wagon-item navbar-wagon-link">
       <%= link_to destroy_user_session_path, method: :delete do%>
       <i class="fas fa-sign-out-alt"></i>

@@ -19,6 +19,7 @@ class ReportsController < ApplicationController
   end
 
   def index
+    @user = current_user
     @reports = Report.all.order(created_at: :asc)
   end
 

@@ -1,5 +1,20 @@
-<h1>Your reports</h1>
 
-<% @reports.each do |report| %>
-  <p><%= link_to report.month.strftime("%B - %Y"), report_path(report) %></p>
-<% end %>
+<!-- <div class="reports-background"> -->
+
+
+  <div class="reports-banner">
+    <div class="banner-image"></div>
+    <div class="banner-text"><h1>iVolunteer</h1></div>
+    <div class="banner-text"><h3>Start Tracking Your Volunteer Work Today!</h3></div>
+    <%= link_to "Get Started", new_report_path, type: "button", class: "banner-button" %>
+  </div>
+
+
+<!-- </div> -->
+
+
+
+
+
+
+
