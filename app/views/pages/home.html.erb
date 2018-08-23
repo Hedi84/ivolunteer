@@ -55,9 +55,30 @@
   </div>
 </div>
 
+<div class="home-text">
+  <p>Volunteering Inspiration <i class="fas fa-heart"></i></p>
+</div>
 
-<h2></h2>
 
+<div class="opportunity-flex">
+  <%= link_to( 'https://www.vegansociety.com/get-involved/volunteer-vegan-society/become-volunteer') do %>
+    <div class="news-card">
+      <%= image_tag('vegansociety.jpg', class: "news-card-photo") %>
+      <div class="card-text">
+        <p><%= truncate("Want to know how you can become more involved with The Vegan Society? Watch the video and browse through the links below to discover the many different ways you can volunteer, ranging from actively involved roles to ones you can carry out from the comfort of your home.", length: 160, omission: '... (continued)') %></p>
+      </div>
+    </div>
+  <% end %>
+
+
+
+  <div class="news-card">
+   https://www.crisis.org.uk/get-involved/
+  </div>
+  <div class="news-card">
+    https://volunteer.yha.org.uk/
+  </div>
+</div>
 
 
 
