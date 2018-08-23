@@ -1,65 +1,63 @@
 <div class="index-background">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('plants.jpg'); %>)">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('feet.jpg'); %>)">
     <div class="banner-content">
-        <h1>Welcome to ivolunteer!</h1>
-        <h2><i>Track Your Volunteering Day by Day</i></h2>
+        <h1>Welcome to ivolunteer</h1>
+        <h3><i>Track Your Volunteering Day by Day</i></h3>
         <% if user_signed_in? %>
-          <%= link_to "Add New Report", new_report_path, type: "button", class: "button" %>
+          <%= link_to "Start!", new_report_path, type: "button", class: "button" %>
         <% else %>
           <%= link_to "Start Today!", new_user_registration_path, type: "button", class: "button" %>
         <% end %>
     </div>
   </div>
-
-
-  <% if user_signed_in? %>
-    <div class="my-container">
-      <div class="my-row">
-
-        <% if @user.reports.count > 0 && @report.notes.count > 0 %>
-        <% @report.notes.last(4).each do |note| %>
-          <%= link_to report_note_path(@report, note) do%>
-            <!-- <div class="col-xs-12 col-sm-4"> -->
-              <div class="card">
-
-                <% if note.photo? %>
-                  <% photo_url = cl_image_path note.photo %>
-                <% else %>
-                  <% photo_url = image_path('sprout.jpg') %>
-                <% end %>
-                <div class="card-photo" style="background-image: url(<%= photo_url %>)"></div>
-
-             <div class="card-description">
-                <h2><%= note.title%></h2>
-                <p><%=  h truncate(note.description, length: 100) %></p>
-             </div>
-            </div>
-          <!-- </div> -->
-          <% end %>
-        <% end %>
-        <% else %>
-          <p>You haven't added volunteer work yet.</p>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
-    <div class="how_it_works">
-      <div class="work-item">
-       <p> <i class="fab fa-pagelines"> </i>Start By Creating A Personal Account</p>
-      </div>
-      <div class="work-item">
-       <p> <i class="fab fa-pagelines"> </i>Create Monthly Reports With A Simple Click of Button</p>
-      </div>
-      <div class="work-item">
-       <p> <i class="fab fa-pagelines"> </i>Add a New Note Whenever You Finish Volunteering</p>
-      </div>
-      <div class="work-item">
-       <p> <i class="fab fa-pagelines"> </i>Add Hours and Photos as You Go!</p>
-      </div>
-
-    </div>
-  <% end %>
+<div class="home-text">
+  <p>How it works</p>
 </div>
+
+
+<div class="home-flex">
+  <div class="home-flex-element">
+    <div class="home-flex-item">
+      <p><i class="fas fa-check"></i>
+       <b>Personal Reports</b> <br></p>
+       <div class="margin"><p>Create a report for each month that you carry out any volunteer work. You can add and edit your work for the current month, the next month, or adjust work you've carried out in the past. </p></div>
+
+
+    </div>
+     <div class="home-flex-item">
+      <p><i class="fas fa-check"></i>
+       <b>Add Your Volunteer Work</b> <br></p>
+       <div class="margin"><p>Every time you finish volunteering, you can instantly add a description, the number of hours worked, and even photos to your monthly report.</p></div>
+
+
+    </div>
+
+  </div>
+   <div class="home-flex-element">`
+    <div class="home-flex-image"> <i class="fas fa-tv"></i></div>
+
+  </div>
+   <div class="home-flex-element">
+     <div class="home-flex-item">
+      <p><i class="fas fa-check"></i>
+       <b>View Your Reports</b> <br></p>
+       <div class="margin"><p>At the end of the month, you can easily take all added information and send it to the concerning organisation, use it for your volunteering blog, or even just keep it for your personal records.</p></div>
+
+
+    </div>
+     <div class="home-flex-item">
+       <p><i class="fas fa-check"></i>
+       <b>Easy Peasy!</b> <br></p>
+       <div class="margin"><p> Sign-up, create a report, and start tracking your volunteer work today. Keep track of time, notes, and dates of how you changed the world this month!</p></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<h2></h2>
+
 
 
 

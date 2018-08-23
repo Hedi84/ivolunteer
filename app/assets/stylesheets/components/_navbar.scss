@@ -30,6 +30,13 @@
   justify-content: space-between;
 }
 
+.navbar-wagon-left {
+  i {
+  font-size: 48px;
+}
+
+}
+
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
@@ -46,7 +53,7 @@
 }
 .navbar-wagon-link:hover {
   a {
-  color: $orange;
+  color: $light-blue;
   text-decoration: none;
   }
 }
@@ -87,3 +94,4 @@
   padding: 0 20px;
 
 }
+
