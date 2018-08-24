@@ -1,7 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background-color: $gray;
+  background-color: $light-gray;
   transition: all 0.3s ease;
   height: 8vh;
   padding: 0px 30px;
@@ -9,6 +9,15 @@
   align-items: center;
   justify-content: space-between;
   position: sticky;
+  a {
+    color: $gray;
+    opacity: 0.8;
+    &:hover {
+      color: $gray;
+      text-decoration: none;
+      opacity: 1;
+    }
+  }
 }
 
 /* Logo */
@@ -44,19 +53,19 @@
 }
 
 /* Navbar link */
-.navbar-wagon-link {
-  a {
-  color: $blue;
-  font-size: 14px;
-  }
+// .navbar-wagon-link {
+//   a {
+//   color: $gray;
+//   font-size: 14px;
+//   }
 
-}
-.navbar-wagon-link:hover {
-  a {
-  color: $light-blue;
-  text-decoration: none;
-  }
-}
+// }
+// .navbar-wagon-link:hover {
+//   a {
+//   color: black;
+//   text-decoration: none;
+//   }
+// }
 
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
@@ -90,7 +99,7 @@
 }
 
 .navbar-text {
-  color: $blue;
+  color: $gray;
   padding: 0 20px;
 
 }

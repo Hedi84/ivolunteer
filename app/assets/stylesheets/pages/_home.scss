@@ -1,3 +1,18 @@
+html {
+  position: relative;
+  min-height: 100%;
+  scroll-behavior:smooth;
+}
+
+
+body {
+  margin: 0 0 80px;
+  /* bottom = footer height */
+  background-color: $light-gray;
+}
+
+
+
 .index-background {
   background-color: $light-gray;
   height: 200vh;
@@ -74,6 +89,7 @@
     margin-bottom: 500px;
     margin-top: 30px;
     font-family: 'Noto Sans', "sans-serif";
+    flex-shrink: 1;
 
 }
 
@@ -156,3 +172,15 @@
   margin-top: -10px;
 }
 
+.bottom-text {
+
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 30px;
+
+  p {
+    font-family: "Nunito Sans", "sans-serif";
+    font-size:32px;
+    font-weight: bolder;
+  }
+}

@@ -2,6 +2,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_note, except: [:new, :create]
   before_action :find_report, only: [:new, :create, :edit, :update]
+  before_action :set_user, only: [:new, :index, :show, :update]
 
   def new
     @note = Note.new
@@ -53,5 +54,11 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :description, :photo, :time)
+  end
+
+  def set_user
+    if user_signed_in?
+      @user = current_user
+    end
   end
 end

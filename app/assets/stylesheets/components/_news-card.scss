@@ -6,6 +6,7 @@
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-top: 80px;
 
 }
 
@@ -36,9 +37,11 @@
   height: 90px;
 }
 
-.news-card:hover {
+.news-card-photo:hover {
   box-shadow: 2px 2.5px 2px 2.5px $gray;
   text-decoration: none;
+  // height: 100px;
+  // width: auto;
 
 }
 

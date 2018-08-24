@@ -1,8 +1,55 @@
 .footer {
-  height: 8vh;
-  width: 100%;
-  background-color: $gray;
-  flex-shrink: 0;
-  margin-top: auto;
+  background: $light-gray;
+  height: 80px;
+  padding: 0px 40px;
+  color: rgba(0,0,0,0.3);
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  margin-top: 30px;
+  margin:auto;
+  color:black;
+  display: flex;
+  justify-content: space-between;
+  a {
+    color: $gray;
+    opacity: 0.8;
+    &:hover {
+      color: $gray;
+      text-decoration: none;
+      opacity: 1;
+    }
+  }
+}
 
+.footer-links h3 {
+  font-size: 16px;
+  margin: 0;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+  margin:auto;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-box{
+  display:flex;
+  justify-content:space-around;
+  a {
+    margin-right: 40px;
+    margin-top: 29px;
+  }
+}
+.margin-auto{
+  margin:auto;
 }
