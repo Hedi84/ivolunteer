@@ -1,16 +1,47 @@
-
-<!-- <div class="reports-background"> -->
-
-
-  <div class="reports-banner">
-    <div class="banner-image"></div>
-    <div class="banner-text"><h1>iVolunteer</h1></div>
-    <div class="banner-text"><h3>Start Tracking Your Volunteer Work Today!</h3></div>
-    <%= link_to "Get Started", new_report_path, type: "button", class: "banner-button" %>
+<div class="reports-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('laptop.jpeg'); %>)">
+  <div class="text-index">
+    <p>Reports</p>
   </div>
 
 
-<!-- </div> -->
+</div>
+
+<div class="reports-flex">
+  <div class="reports">
+    <div class="reports-text-top">
+      <p>Your Reports</p>
+    </div>
+    <% @reports.each do |report| %>
+         <div class="report-card">
+          <div class="card-delete">
+            <%= link_to "x", reports_path(report), method: :delete, data: { confirm: 'Are you sure you want to delet this report? (Remembe that all connected notes will be lost!)' } %>
+          </div>
+          <div class="card-edit">
+            <%= link_to report_path(report.id) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+          </div>
+          <div class="card-month">
+            <h1>Report for: <%= report.month.strftime("%m/%Y") %> </h1>
+            <p>This report currently consists of <%= pluralize(report.notes.count.to_i, 'note') %> </p>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+
+  <div class="reports-form">
+    <div class="my-form">
+      <p>Create a new Report</p>
+      <%= simple_form_for @report do |f|%>
+        <%= f.input :month, as: :date,  discard_day: true %>
+        <%= f.submit 'create report', :class => 'button' %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 

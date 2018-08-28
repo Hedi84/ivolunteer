@@ -4,7 +4,7 @@
         <h1>Welcome to ivolunteer</h1>
         <h3><i>Track Your Volunteering Day by Day</i></h3>
         <% if user_signed_in? %>
-          <%= link_to "Start!", new_report_path, type: "button", class: "button" %>
+          <%= link_to "Start!", reports_path, type: "button", class: "button" %>
         <% else %>
           <%= link_to "Start Today!", new_user_registration_path, type: "button", class: "button" %>
         <% end %>

@@ -1,14 +1,68 @@
-<h1>Your report for <%= @report.month.strftime("%B - %Y") %></h1>
+<div class="reports-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('laptopzoom.jpeg'); %>)">
+  <h1>Your report for <%= @report.month.strftime("%B - %Y") %></h1>
+</div>
+
+<div class="reports-flex">
+  <div class="reports">
+    <div class="reports-text-top">
+      <p>Notes</p>
+    </div>
+    <% @report.notes.each do |note| %>
+         <div class="note-card">
+          <div class="card-delete">
+            <%= link_to "x", note_path(note), method: :delete, data: { confirm: 'Are you sure you want to delet this note? (Remember that it cannot be retrieved!)' } %>
+          </div>
+          <div class="card-edit">
+            <%= link_to  edit_report_note_path(@report, note) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+          </div>
+          <div class="card-month">
+            <h1><%= note.title %> </h1>
+            <p>This note was created at: <%=note.created_at.strftime("%m/%Y") %></p>
+            <p>last updated at: <%=note.updated_at.strftime("%m/%Y") %>  </p>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="my-notes-flex">
+    <div class="reports-form">
+      <div class="my-form">
+        <p>Create a New Note</p>
+        <%= simple_form_for [@report, @note] do |f|%>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <%= f.input :time %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.submit 'Add note', :class => 'note-button' %>
+        <% end %>
+        </div>
+      </div>
+      <div class="summary">
+          <div class="reports-text-top">
+            <p>Summary for <%= @report.month.strftime("%B - %Y") %>:</p>
+          </div>
+          <% if @report.notes.count < 1 %>
+            <p>There are no notes for this month yet!</p>
+          <% else %>
+            <div class="summary-card">
+              <p><b>You have voluntered for <%= pluralize(@time, 'hour') %> this month.</b></p>
+              <% @report.notes.each do |note| %>
+                <p><%= note.created_at.strftime("%m/%d/%Y")%>: <%= link_to note.title, edit_report_note_path(@report, note.id)%>
+                </p><%= note.description %> </p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+  </div>
+
+</div>
 
 
-<% if @report.notes.count > 0 %>
-  <h2>Here is what you've done this month!</h2>
-  <p>These are all your notes for <%= @report.month.strftime("%B - %Y") %></p>
-  <p>You have voluntered for <%= pluralize(@time, 'hour') %> this month.</p>
-  <p><%= link_to "add a note", new_report_note_path(@report) %></p>
-  <% @report.notes.each do |note| %>
-    <p><%= note.created_at.strftime("%m/%d/%Y")%>: <%= link_to note.title, report_note_path(@report, note.id)%> <%=link_to 'x', report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %></p><%= note.description %> </p>
-  <% end %>
-<% else %>
-  <h3>No notes for this month yet, <%= link_to "add a note", new_report_note_path(@report) %></h3>
-<% end %>
+
+
+
+
+
