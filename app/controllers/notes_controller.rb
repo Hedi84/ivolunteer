@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_note, except: [:new, :create]
   before_action :find_report, only: [:new, :create, :edit, :update]
-  before_action :set_user, only: [:new, :index, :show, :update]
+  before_action :set_user, only: [:new, :index, :show, :update, :edit]
 
   def new
     @note = Note.new
