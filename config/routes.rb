@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get '/pages/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  delete '/reports/:id', to: 'reports#destroy', as: 'destroy_report'
   # get '', to: 'notes#show', as'show_note'
-  resources :reports, except: [:update] do
+  resources :reports, except: [:update, :destroy] do
     resources :notes, except: [:index, :destroy]
   end
   resources :notes, only: [:destroy]

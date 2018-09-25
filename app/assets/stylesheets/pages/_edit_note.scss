@@ -100,6 +100,11 @@
     }
 
 
-.edit-margin {
-  /* margin-top: 50px; */
+.note-delete {
+  color: red;
+  text-align: left;
+}
+
+.note-delete:hover {
+  text-decoration: none;
 }

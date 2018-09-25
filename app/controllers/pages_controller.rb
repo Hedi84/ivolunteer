@@ -11,8 +11,6 @@ class PagesController < ApplicationController
      if user_signed_in?
       @user = current_user
       @reports = @user.reports
-
-
-
+    end
    end
 end

@@ -14,7 +14,7 @@
     <% @reports.each do |report| %>
          <div class="report-card">
           <div class="card-delete">
-            <%= link_to "x", reports_path(report), method: :delete, data: { confirm: 'Are you sure you want to delet this report? (Remembe that all connected notes will be lost!)' } %>
+            <%= link_to "x", destroy_report_path(report[:id]), method: :delete, data: { confirm: 'Are you sure you want to delet this report? (Remembe that all connected notes will be lost!)' } %>
           </div>
           <div class="card-edit">
             <%= link_to report_path(report.id) do %>

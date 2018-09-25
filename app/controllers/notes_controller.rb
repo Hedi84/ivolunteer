@@ -35,7 +35,7 @@ class NotesController < ApplicationController
   def update
     @note.update(note_params)
     if @note.save
-      redirect_to report_note_path(@report, @note)
+      redirect_to report_path(@report)
     else
       render "edit"
     end
