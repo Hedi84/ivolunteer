@@ -1,41 +1,42 @@
-.report-show-flex{
-  display: flex;
-  // flex-wrap: wrap;
-  flex-direction: row;
-  // align-items: center;
-  justify-content: space-between;
-  // flex-shrink: 1;
-  // flex-grow: 1;
-  margin-top: 20px;
-  min-height: 100vh;
-}
+// .report-show-flex{
+//   display: flex;
+//   // flex-wrap: wrap;
+//   flex-direction: row;
+//   // align-items: center;
+//   justify-content: space-between;
+//   // flex-shrink: 1;
+//   // flex-grow: 1;
+//   margin-top: 20px;
+//   min-height: 100vh;
+// }
 
 .report-show-left {
-  width: 50%;
+  width: 100%;
   // height: auto;
   margin-top: 20px;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
+  // margin-left: 15%;
+  // display: flex;
+  // justify-content: flex-start;
+  // flex-direction: column;
   // align-items: center;
 
 }
 
 .report-show-right {
-  width: 50%;
+  width: 100%;
   height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  flex-grow: 1;
+  // display: flex;
+  // flex-wrap: wrap;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: flex-start;
+  // flex-grow: 1;
 
 }
 
 
 .note-card {
-  width: 450px;
+  min-width: 450px;
   height: 160px;
   border-style: solid;
   border-color: #bcbcc4;
@@ -91,8 +92,8 @@
 .summary {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  // justify-content: center;
+  // flex-direction: column;
   align-items: center;
 }
 
@@ -113,6 +114,7 @@
 
 .summary-card-text {
   text-align: left;
+  min-width: 100%;
   // display: flex;
   // flex-direction: row;
   // flex-wrap: wrap;

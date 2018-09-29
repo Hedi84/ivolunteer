@@ -20,10 +20,12 @@
               <div class="card-delete">
                 <%= link_to "x", destroy_report_path(report[:id]), method: :delete, data: { confirm: 'Are you sure you want to delet this report? (Remembe that all connected notes will be lost!)' } %>
               </div>
-              <div class="card-edit">
+              <div class="card-edit hidden-sm">
+              <div class="card-edit-small hidden-md">
                 <%= link_to report_path(report.id) do %>
                   <i class="fas fa-edit"></i>
                 <% end %>
+              </div>
               </div>
               <div class="card-month">
                 <h1>Report for: <%= report.month.strftime("%m/%Y") %> </h1>

@@ -1,49 +1,54 @@
-<div class="reports-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('laptopzoom.jpeg'); %>)">
+<div class="reports-banner col-sm-12 col-md-12" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('laptopzoom.jpeg'); %>)">
   <h1>Your report for <%= @report.month.strftime("%B - %Y") %></h1>
 </div>
 
 
 
-<div class="report-show-flex">
-  <div class="report-show-right">
-    <div class="reports-form">
-      <div class="my-form">
-        <div class="show-page-text"><p>Create a New Note</p></div>
-        <%= simple_form_for [@report, @note] do |f|%>
-            <%= f.input :title %>
-            <%= f.input :description %>
-            <%= f.input :time %>
-            <%= f.input :photo %>
-            <%= f.input :photo_cache, as: :hidden %>
-            <%= f.submit 'Add note', :class => 'note-button' %>
+<div class="container">
+  <div class="row">
+    <div class="report-show-right col-md-6 col-sm-12">
+      <div class="reports-form">
+        <div class="my-form">
+          <div class="show-page-text"><p>Create a New Note</p></div>
+          <%= simple_form_for [@report, @note] do |f|%>
+              <%= f.input :title %>
+              <%= f.input :description %>
+              <%= f.input :time %>
+              <%= f.input :photo %>
+              <%= f.input :photo_cache, as: :hidden %>
+              <%= f.submit 'Add note', :class => 'note-button' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="report-show-left col-md-6 col-sm-12">
+      <div>
+        <% if @report.notes.count < 1 %>
+          <p>There are no notes for this month yet!</p>
+        <% else %>
+          <div class="summary-card">
+            <div class="summary-card-text">
+              <h1><b>Summary for <%= @report.month.strftime("%B - %Y") %></b></h1>
+              <p><u>You have voluntered for <%= pluralize(@time, 'hour') %> this month.</u></p>
+              <% @report.notes.each do |note| %>
+                <%= link_to edit_report_note_path(@report, note.id) do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+                <p><%= note.created_at.strftime("%m/%d/%Y")%>: "<%=note.title%> "</p>
+                <p><%= note.description %> </p>
+              <% end %>
+              </div>
+          </div>
         <% end %>
       </div>
     </div>
+
   </div>
-
-
-
-  <div class="report-show-left">
-    <div>
-      <% if @report.notes.count < 1 %>
-        <p>There are no notes for this month yet!</p>
-      <% else %>
-        <div class="summary-card">
-          <div class="summary-card-text">
-            <h1><b>Summary for <%= @report.month.strftime("%B - %Y") %></b></h1>
-            <p><u>You have voluntered for <%= pluralize(@time, 'hour') %> this month.</u></p>
-            <% @report.notes.each do |note| %>
-              <%= link_to edit_report_note_path(@report, note.id) do %>
-                <i class="fas fa-edit"></i>
-              <% end %>
-              <p><%= note.created_at.strftime("%m/%d/%Y")%>: "<%=note.title%> "</p>
-              <p><%= note.description %> </p>
-            <% end %>
-            </div>
-        </div>
-      <% end %>
-    </div>
 </div>
+
 
 
 

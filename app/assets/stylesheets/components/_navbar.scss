@@ -39,6 +39,12 @@
   justify-content: space-between;
 }
 
+
+.navbar-wagon-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .navbar-wagon-left {
   i {
   font-size: 48px;
@@ -104,3 +110,6 @@
 
 }
 
+.no-padding {
+    padding: 0 !important;
+}

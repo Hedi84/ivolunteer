@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 import 'bootstrap';
+import 'bootstrap/dist/js/bootstrap.bundle';
+
