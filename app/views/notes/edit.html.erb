@@ -1,30 +1,35 @@
 
-<div class="edit-flex">
+<div class="container">
+  <div class="row">
+    <div class="edit-left col-sm-12 col-md-6">
+      <p>Edit This Note:</p>
+      <div class="edit-form">
+        <%= link_to note_path(@note), method: :delete, data: { confirm: 'Are you sure you want to delete this note? (Remember that it will be lost!)' } do %>
+          <div class="note-delete">X</div>
+        <% end %>
+        <%= simple_form_for [@report, @note] do |f| %>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <%= f.input :time %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.submit 'Save & Back', :class => 'note-button' %>
+        <% end %>
 
-  <div class="edit-left">
-    <p>Edit This Note:</p>
-    <div class="edit-form">
-      <%= link_to note_path(@note), method: :delete, data: { confirm: 'Are you sure you want to delete this note? (Remember that it will be lost!)' } do %>
-        <div class="note-delete">X</div>
-      <% end %>
-      <%= simple_form_for [@report, @note] do |f| %>
-          <%= f.input :title %>
-          <%= f.input :description %>
-          <%= f.input :time %>
-          <%= f.input :photo %>
-          <%= f.input :photo_cache, as: :hidden %>
-          <%= f.submit 'Save note and return to report', :class => 'note-button' %>
-      <% end %>
+      </div>
+
 
     </div>
 
+    <div class="edit-right col-sm-12 col-md-6">
+      <p>Uploaded Photo: </p>
+      <div class="edit-photo">
+        <%= cl_image_tag @note.photo, height: 300, width: 400, crop: :fill %>
+      </div>
+    </div>
 
   </div>
 
-  <div class="edit-right">
-    <p>Uploaded Photo: </p>
-    <%= cl_image_tag @note.photo, height: 300, width: 400, crop: :fill %>
-  </div>
 
 </div>
 

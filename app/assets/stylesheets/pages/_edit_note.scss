@@ -11,7 +11,7 @@
 
 
 .edit-left {
- width: 50%;
+ width: 100%;
  display: flex;
  flex-direction: column;
  justify-content: flex-start;
@@ -33,7 +33,7 @@
 
 
 .edit-right {
-  width: 50%;
+width: 100%;
  display: flex;
  flex-direction: column;
  justify-content: flex-start;
@@ -50,6 +50,7 @@
     margin-bottom: 20px;
 
   }
+
 }
 
 
@@ -107,4 +108,11 @@
 
 .note-delete:hover {
   text-decoration: none;
+}
+
+
+.edit-photo {
+  img {
+    width: 100%;
+  }
 }
