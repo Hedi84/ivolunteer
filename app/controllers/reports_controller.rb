@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :find_report, only: [:show, :destroy]
-  before_action :set_user, only: [:new, :index, :show, :create]
+  before_action :set_user
 
 
   def new
